@@ -588,17 +588,6 @@ local GameID = game.GameId
 local ifscriptforgame = getgitpath(GameID)
 
 if ifscriptforgame then
-    GameTab:Section({
-        Title = "Main",
-        Box = false,
-        TextTransparency = 0.05,
-        TextXAlignment = "Center",
-        TextSize = 17, -- Default Size
-        Opened = true,
-    })
-
-    GameTab:Divider()
-
     loadstring(ifscriptforgame)()
 end
 
