@@ -4,6 +4,17 @@ local GameTab = _G.NiggerGameTab
 local Players = game:GetService("Players")
 local Player = Players.LocalPlayer
 
+GameTab:Section({
+    Title = "Protection",
+    Box = false,
+    TextXAlignment = "Center",
+    TextSize = 17, -- Default Size
+    Opened = true,
+    TextTransparency = 0.05,    
+})
+
+GameTab:Divider()
+
 local function ChangeTitle(VarName, Text)
     if VarName.SetTitle then
         VarName:SetTitle(tostring(Text))
