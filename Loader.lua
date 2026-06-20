@@ -554,23 +554,21 @@ FlyToggle = MovementTab:Toggle({
 
 local function getgitpath(gameid)
     local mainBuild = "https://raw.githubusercontent.com/nitrolden-dot/Ginger/refs/heads/main"
+    local ifgamescript = false
 
     if gameid then
         local weblocation = (mainBuild.."/games/"..gameid..".lua")
-        local ifgamescript = game:HttpGet(weblocation)
 
-        if ifgamescript then
-            return ifgamescript
-        else
-            return false
-        end
-    else
-        return false
+        ifgamescript = game:HttpGet(weblocation)
+
+        if ifgamescript == "404: Not Found" then ifgamescript = false end
+
     end
+
+    return ifgamescript
 end
 
 _G.NiggerWindow = Window
-_G.NiggerChangeTitle = ChangeTitle
 
 local GameTab = Window:Tab({
     Title = "Game",
